@@ -12,22 +12,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/gdsc"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:layout_centerHorizontal="true"
+         />
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="GDSC"
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/logo"/>
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"/>
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="boumerdes University "
+        android:textSize="13sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/text1"/>
+        android:layout_below="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
 
 
 </RelativeLayout>
