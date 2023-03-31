@@ -1,14 +1,22 @@
 package com.example.gdscapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
 
+
+public class MainActivity extends AppCompatActivity {
+ Toolbar toolbar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar =findViewById(R.id.toolbar);
+        //toolbar.setTitleTextColor(getResources().getColor(android.R.color.#808080));
+
+        setSupportActionBar(toolbar);
     }
 }

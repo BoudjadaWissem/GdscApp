@@ -2,11 +2,13 @@ package com.example.gdscapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.Handler;
 
 public class SplashScreen extends AppCompatActivity {
 ImageView LOGO;
@@ -28,6 +30,20 @@ Animation top_ani,center_ani,bottom_ani;
         LOGO.setAnimation(center_ani);
         Text1.setAnimation(bottom_ani);
         Text2.setAnimation(bottom_ani);
+        //rediriger vers la page home page apres 3 seconde
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                //demarrer une page
+                Intent  intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                //il faut finir lactivite current sinon elle va resster enfant
+                finish();
+
+            }
+        };
+        //handler post delayer
+        new Handler().postDelayed(runnable,3000);
 
 
 
