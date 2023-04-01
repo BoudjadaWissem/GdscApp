@@ -13,10 +13,10 @@
     <item
         android:id="@+id/historique"
         android:title=""
-        android:icon="@drawable/home" />
+        android:icon="@drawable/historique" />
 
     <item
         android:id="@+id/contact"
         android:title=""
-        android:icon="@drawable/home" />
+        android:icon="@drawable/contact" />
 </menu>
