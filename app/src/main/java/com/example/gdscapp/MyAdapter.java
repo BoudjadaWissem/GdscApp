@@ -1,38 +1,63 @@
 package com.example.gdscapp;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-public class MyAdapter extends RecyclerView.Adapter<MyviewHolder> {
+    String data[];
     Context context;
-    List<item>  items;
 
-    public MyAdapter(Context context, List<item> items) {
+    public MyAdapter(Context context,String[] data) {
+        this.data = data;
         this.context = context;
-        this.items = items;
     }
 
     @NonNull
     @Override
-    public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyviewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
+    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        LayoutInflater layoutInflater =LayoutInflater.from(parent.getContext());
+        View view  = layoutInflater.inflate(R.layout.item_view,parent,false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyviewHolder holder, int position) {
-   holder.name.setText(items.get(position).getName());
+    public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
 
+       holder.textView.setText(data[position]);
+
+       holder.textView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
+
+           }
+       });
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return data.length;
+
+    }
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView textView;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textView=itemView.findViewById(R.id.textname);
+
+        }
     }
 }

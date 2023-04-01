@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/mnu_item_Download"
+    android:title="Download"/>
+    <item android:id="@+id/mnu_item_Preview"
+        android:title="Preview"/>
+    <item android:id="@+id/mnu_item_Favorite"
+        android:title="Favorite"/>
+
+
+</menu>
