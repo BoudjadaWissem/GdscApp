@@ -1,7 +1,9 @@
 package com.example.gdscapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.ClipData;
@@ -10,17 +12,50 @@ import android.renderscript.ScriptGroup;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.gdscapp.fragments.ContactFragment;
+import com.example.gdscapp.fragments.HistoriqueFragment;
+import com.example.gdscapp.fragments.HomeFragment;
+import com.example.gdscapp.fragments.ProfileFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    MyAdapter adapter;
+
  Toolbar toolbar ;
- String DoucumentNames[]={" ●   Lette de Motivation"," ●   Education certificate","●   Relevés de notes",
-         "●   Attestation d’abondant","●   Diplôme"," ●   Group change"," ●  Relevés de notes"};
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentManager manager = getSupportFragmentManager();
+            switch (item.getItemId()) {
+                case R.id.home:
+                    manager.beginTransaction().replace(R.id.host_fragment, new HomeFragment()).commit();
+                    break;
+
+                case R.id.profile:
+
+                    manager.beginTransaction().replace(R.id.host_fragment, new ProfileFragment()).commit();
+                    break;
+                case R.id.historique:
+
+                    manager.beginTransaction().replace(R.id.host_fragment, new HistoriqueFragment()).commit();
+                    break;
+                case R.id.contact:
+
+                    manager.beginTransaction().replace(R.id.host_fragment, new ContactFragment()).commit();
+                    break;
+            }
+            return true;
+        }
+
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,35 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-          recyclerView = findViewById(R.id.recycleview);
-          recyclerView.setLayoutManager(new LinearLayoutManager(this));
-          adapter = new MyAdapter(this,DoucumentNames);
-          recyclerView.setAdapter(adapter);
-//        List<item> items = new ArrayList<item>();
-//        items.add(new item("Lette de Motivation",R.drawable.point));
-//        items.add(new item("Education certificate",R.drawable.point));
-//        items.add(new item("Relevés de notes",R.drawable.point));
-//        items.add(new item("Attestation d’abondant",R.drawable.point));
-//        items.add(new item("Diplôme",R.drawable.point));
-//        items.add(new item("Group change",R.drawable.point));
-//        items.add(new item("Relevés de notes",R.drawable.point));
-
-
-
-
-
-
-
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
-
-
-
-
-
-
-
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
 }
