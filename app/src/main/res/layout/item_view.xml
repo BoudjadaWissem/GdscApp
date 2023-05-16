@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="373dp"
+        android:layout_width="367dp"
         android:layout_height="50dp"
 
         android:layout_margin="8dp"
@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="10dp"
-            android:text="doucument"
-            android:textColor="@color/black"
+            android:text=" doucument"
+            android:textColor="@color/toolbar_title_color"
             android:textSize="15dp"
             android:textStyle="italic"
 
@@ -27,8 +27,8 @@
 
         <ImageView
 
-            android:id="@+id/imageButton"
-            android:layout_width="17dp"
+            android:id="@+id/image_view_more"
+            android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="end"
             android:layout_marginTop="13dp"

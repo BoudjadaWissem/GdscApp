@@ -4,24 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.ClipData;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
+import android.view.MenuItem;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
     RecyclerView recyclerView;
     MyAdapter adapter;
  Toolbar toolbar ;
- String DoucumentNames[]={" . Lette de Motivation"," . Education certificate",". Relevés de notes",
-         ". Attestation d’abondant",". Diplôme"," . Group change"," . Relevés de notes"};
+ String DoucumentNames[]={" ●   Lette de Motivation"," ●   Education certificate","●   Relevés de notes",
+         "●   Attestation d’abondant","●   Diplôme"," ●   Group change"," ●  Relevés de notes"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar =findViewById(R.id.toolbar);
         //toolbar.setTitleTextColor(getResources().getColor(android.R.color.#808080));
@@ -50,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
+
+
+
+
+
+
+
 
     }
 }
